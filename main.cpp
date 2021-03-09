@@ -14,7 +14,7 @@ void DeleteExtraSPACE(string& str){
 }
 
 void BuildDoll(char (&table)[32][32], short& len){
-    short cnt=0,i=0,j=0;
+    short cnt=1,i=0,j=0;
     table[i][j]='1';
     while(++cnt<=len){
         if(i==0) table[i][++j]='1';
@@ -34,7 +34,7 @@ void FillDoll(char (&table)[32][32], short& len, string& str){
 }
 
 void Decrypt(char (&table)[32][32],short& len){
-    short cnt=0,i=0,j=0;
+    short cnt=1,i=0,j=0;
     cout<<table[i][j];
     while(++cnt<=len){
         if(i==0) cout<<table[i][++j];
