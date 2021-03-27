@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <string>
 using namespace std;
+const short R=32,C=32;
 
 void DeleteExtraSPACE(string& str){
     for(short i=4; i<str.length();){
@@ -13,7 +14,7 @@ void DeleteExtraSPACE(string& str){
     }
 }
 
-void BuildDoll(char (&table)[32][32], short& len){
+void BuildDoll(char (&table)[R][C], short& len){
     short cnt=1,i=0,j=0;
     table[i][j]='1';
     while(++cnt<=len){
@@ -24,12 +25,12 @@ void BuildDoll(char (&table)[32][32], short& len){
     }
 }
 
-void FillDoll(char (&table)[32][32], short& len, string& str){
+void FillDoll(char (&table)[R][C], short& len, string& str){
     short cnt=0;
     while(cnt<=len) for(short i=0; cnt<=len; ++i) for(short j=0; table[i][j]!='\0'; ++j) table[i][j]=str[cnt++];
 }
 
-void Decrypt(char (&table)[32][32],short& len){
+void Decrypt(char (&table)[R][C],short& len){
     short cnt=1,i=0,j=0;
     cout<<table[i][j];
     while(++cnt<=len){
@@ -43,8 +44,7 @@ void Decrypt(char (&table)[32][32],short& len){
 int main(){
     ios::sync_with_stdio(false);
     SetConsoleCP(1251);SetConsoleOutputCP(1251);
-    const short R=32,C=32;char choose;
-    char table[R][C]={};
+    char table[R][C]={},choose;
 
     string str; getline(cin,str);
     cout<<"Remove separating spaces? y/n?\n";
